@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Mam!</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+
+    <style>
+        body {
+            background-color: #1b1b2f;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 2.5em;
+        }
+
+        #quality-selector {
+            margin-top: 20px;
+            font-size: 1.2em;
+            padding: 10px;
+            background-color: #162447;
+            color: white;
+            border: none;
+            outline: none;
+        }
+
+        #image-container {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+        }
+
+        #moon-image {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            transition: filter 0.5s ease;
+        }
+
+        .blurred-144p {
+            filter: blur(5px);
+            border-radius: 50%;
+        }
+
+        .blurred-240p {
+            filter: blur(3px);
+            border-radius: 40%;
+        }
+
+        .blurred-480p {
+            filter: none;
+            border-radius: 30%;
+        }
+
+        .blurred-1080p {
+            filter: none;
+            border-radius: 20%;
+        }
+
+        .clear-2160p {
+            filter: none;
+            border-radius: 20px;
+        }
+
+        .message {
+            display: none;
+            font-size: 1.5em;
+            margin-top: 20px;
+            color: #fddb3a;
+        }
+
+        /* Media queries for responsiveness */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            #moon-image {
+                max-width: 250px;
+            }
+
+            #quality-selector {
+                font-size: 1.1em;
+                padding: 8px;
+            }
+
+            .message {
+                font-size: 1.3em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.7em;
+            }
+
+            #moon-image {
+                max-width: 200px;
+            }
+
+            #quality-selector {
+                font-size: 1em;
+                padding: 6px;
+            }
+
+            .message {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Happy Birthday, Mam!</h1>
+    <p>Gradually increase the pixels to reveal the surprise!</p>
+    <select id="quality-selector">
+        <option value="144p">144p</option>
+        <option value="240p">240p</option>
+        <option value="480p">480p</option>
+        <option value="1080p">1080p</option>
+        <option value="2160p">2160p</option>
+    </select>
+
+    <div id="image-container">
+        <img id="moon-image" src="https://thumbs.dreamstime.com/b/pixel-art-moon-stars-vector-illustration-pixel-art-moon-stars-174879184.jpg" alt="Moon Image" class="blurred-144p">
+    </div>
+
+    <div class="message" id="message">Thank you for being an amazing teacher! <br> <b>Once Again Happy Birthday <i class="fa-solid fa-cake-candles" style="color: #FFD43B;"></i></b></div>
+
+    <script>
+        const qualitySelector = document.getElementById('quality-selector');
+        const moonImage = document.getElementById('moon-image');
+        const message = document.getElementById('message');
+        
+        qualitySelector.addEventListener('change', function() {
+            const quality = qualitySelector.value;
+        
+            switch(quality) {
+                case '144p':
+                    moonImage.src = 'https://thumbs.dreamstime.com/b/pixel-art-moon-stars-vector-illustration-pixel-art-moon-stars-174879184.jpg';
+                    moonImage.className = 'blurred-144p';
+                    message.style.display = 'none';
+                    break;
+                case '240p':
+                    moonImage.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa0vvLLKppRhmt-pihWnXGW4KrEcGraRQlyQ&s';
+                    moonImage.className = 'blurred-240p';
+                    message.style.display = 'none';
+                    break;
+                case '480p':
+                    moonImage.src = 'data:image/jpeg;base64,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'; // Use appropriate image here
+                    moonImage.className = 'blurred-480p';
+                    message.style.display = 'none';
+                    break;
+                case '1080p':
+                    moonImage.src = 'https://w0.peakpx.com/wallpaper/372/436/HD-wallpaper-moon.jpg'; // Use appropriate image here
+                    moonImage.className = 'blurred-1080p';
+                    message.style.display = 'none';
+                    break;
+                case '2160p':
+                    moonImage.src = 'https://i.postimg.cc/q781cWMW/me-mam1.jpg'; // Use appropriate image here
+                    moonImage.className = 'clear-2160p';
+                    message.style.display = 'block';
+                    break;
+            }
+        });
+    </script>
+</body>
+</html>
